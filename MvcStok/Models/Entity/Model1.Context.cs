@@ -13,10 +13,10 @@ namespace MvcStok.Models.Entity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MvcDbStokEntities : DbContext
+    public partial class MvcDbStokEntities1 : DbContext
     {
-        public MvcDbStokEntities()
-            : base("name=MvcDbStokEntities")
+        public MvcDbStokEntities1()
+            : base("name=MvcDbStokEntities1")
         {
         }
     

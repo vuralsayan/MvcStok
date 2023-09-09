@@ -10,7 +10,7 @@ namespace MvcStok.Controllers
     public class UrunController : Controller
     {
         // GET: Urun
-        MvcDbStokEntities db = new MvcDbStokEntities(); 
+        MvcDbStokEntities1 db = new MvcDbStokEntities1(); 
         public ActionResult Index()
         {
             var degerler = db.TBLURUNLER.ToList();  

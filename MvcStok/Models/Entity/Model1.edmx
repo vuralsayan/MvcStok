@@ -28,7 +28,7 @@
           </Key>
           <Property Name="MUSTERIID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MUSTERIAD" Type="varchar" MaxLength="50" />
-          <Property Name="MSUTERISOYAD" Type="varchar" MaxLength="50" />
+          <Property Name="MUSTERISOYAD" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="TBLSATISLAR">
           <Key>
@@ -135,7 +135,7 @@
           </Key>
           <Property Name="MUSTERIID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MUSTERIAD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="MSUTERISOYAD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MUSTERISOYAD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="TBLSATISLAR" Relationship="Self.FK_TBLSATISLAR_TBLMUSTERILER" FromRole="TBLMUSTERILER" ToRole="TBLSATISLAR" />
         </EntityType>
         <EntityType Name="TBLSATISLAR">
@@ -199,7 +199,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MvcDbStokEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MvcDbStokEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="TBLKATEGORILER" EntityType="Self.TBLKATEGORILER" />
           <EntitySet Name="TBLMUSTERILER" EntityType="Self.TBLMUSTERILER" />
@@ -223,7 +223,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MvcDbStokModelStoreContainer" CdmEntityContainer="MvcDbStokEntities">
+        <EntityContainerMapping StorageEntityContainer="MvcDbStokModelStoreContainer" CdmEntityContainer="MvcDbStokEntities1">
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="MvcDbStokModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -248,7 +248,7 @@
               <MappingFragment StoreEntitySet="TBLMUSTERILER">
                 <ScalarProperty Name="MUSTERIID" ColumnName="MUSTERIID" />
                 <ScalarProperty Name="MUSTERIAD" ColumnName="MUSTERIAD" />
-                <ScalarProperty Name="MSUTERISOYAD" ColumnName="MSUTERISOYAD" />
+                <ScalarProperty Name="MUSTERISOYAD" ColumnName="MUSTERISOYAD" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
