@@ -16,5 +16,22 @@ namespace MvcStok.Controllers
             var degerler = db.TBLURUNLER.ToList();  
             return View(degerler);
         }
+        [HttpGet]
+
+        public ActionResult UrunEkle()
+        {
+            return View();
+        }
+
+        [HttpPost]
+
+        public ActionResult UrunEkle(TBLURUNLER p1)
+        {
+            db.TBLURUNLER.Add(p1);
+            db.SaveChanges();
+            return View();
+
+        }
+
     }
 }
