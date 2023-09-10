@@ -13,6 +13,8 @@
         <th>Kategori</th>
         <th>Fiyat</th>
         <th>Stok</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
     </tr>
     <tbody>
         @foreach (var urn in Model)
@@ -24,7 +26,10 @@
                 <td>@urn.URUNKATEGORI</td>
                 <td>@urn.FIYAT</td>
                 <td>@urn.STOK</td>
+                <td><a href="/URUN/SIL/@urn.URUNID" class="btn btn-danger">SİL</a></td>
+                <td><a href="/URUN/GUNCELLE/@urn.URUNID" class="btn btn-success">GÜNCELLE</a></td>
             </tr>
         }
 </table>
+<a href="/URUN/YeniUrun/" class="btn btn-primary">YENİ ÜRÜN EKLE</a>
 
