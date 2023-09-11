@@ -11,14 +11,14 @@ namespace MvcStok.Controllers
     {
         // GET: Urun
         MvcDbStokEntities1 db = new MvcDbStokEntities1();
-        public ActionResult Index()
+        public ActionResult Index()  
         {
             var degerler = db.TBLURUNLER.ToList();
             return View(degerler);
         }
         [HttpGet]
 
-        public ActionResult UrunEkle()
+        public ActionResult UrunEkle() //Kategorileri listeleme işlemi
         {
             List<SelectListItem> degerler = (from i in db.TBLKATEGORILER.ToList()
                                              select new SelectListItem
@@ -32,7 +32,7 @@ namespace MvcStok.Controllers
 
         [HttpPost]
 
-        public ActionResult UrunEkle(TBLURUNLER p1)
+        public ActionResult UrunEkle(TBLURUNLER p1) //Ürün ekleme işlemi
         {
             var ktgr = db.TBLKATEGORILER.Where(m => m.KATEGORIID == p1.TBLKATEGORILER.KATEGORIID).FirstOrDefault();
             p1.TBLKATEGORILER = ktgr;
@@ -40,6 +40,14 @@ namespace MvcStok.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
 
+        }
+
+        public ActionResult SIL(int id) //Ürün silme işlemi
+        {
+            var urun = db.TBLURUNLER.Find(id);
+            db.TBLURUNLER.Remove(urun);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
     }

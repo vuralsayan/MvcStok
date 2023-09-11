@@ -16,14 +16,14 @@ namespace MvcStok.Controllers
             var degerler = db.TBLKATEGORILER.ToList();    
             return View(degerler);
         }
-        [HttpGet] //sayfa yüklendiğinde çalışacak olan action
+        [HttpGet]
         public ActionResult YeniKategori()
         {
             return View(); 
         }   
 
 
-        [HttpPost] //sayfada bir butona tıkladığımızda çalışacak olan action
+        [HttpPost] 
         public ActionResult YeniKategori(TBLKATEGORILER p1)
         {
             db.TBLKATEGORILER.Add(p1);
