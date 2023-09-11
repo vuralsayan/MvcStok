@@ -11,7 +11,7 @@ namespace MvcStok.Controllers
     {
         // GET: Kategori
         MvcDbStokEntities1 db = new MvcDbStokEntities1(); 
-        public ActionResult Index()
+        public ActionResult Index() //kategori listeleme işlemi
         {
             var degerler = db.TBLKATEGORILER.ToList();    
             return View(degerler);
@@ -29,6 +29,14 @@ namespace MvcStok.Controllers
             db.TBLKATEGORILER.Add(p1);
             db.SaveChanges();
             return View();
+        }
+
+        public ActionResult SIL(int id) //id parametresi ile gelen değeri sil
+        {
+            var kategori = db.TBLKATEGORILER.Find(id);
+            db.TBLKATEGORILER.Remove(kategori);
+            db.SaveChanges();
+            return RedirectToAction("Index");   
         }
     }
 }
