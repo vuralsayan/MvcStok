@@ -34,9 +34,11 @@ namespace MvcStok.Controllers
 
         public ActionResult UrunEkle(TBLURUNLER p1)
         {
+            var ktgr = db.TBLKATEGORILER.Where(m => m.KATEGORIID == p1.TBLKATEGORILER.KATEGORIID).FirstOrDefault();
+            p1.TBLKATEGORILER = ktgr;
             db.TBLURUNLER.Add(p1);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("Index");
 
         }
 
