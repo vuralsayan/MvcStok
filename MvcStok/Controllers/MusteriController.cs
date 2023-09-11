@@ -11,24 +11,32 @@ namespace MvcStok.Controllers
     {
         // GET: Musteri
         MvcDbStokEntities1 db = new MvcDbStokEntities1();
-        public ActionResult Index()
+        public ActionResult Index() //Müşterileri listeleme işlemi
         {
             var degerler = db.TBLMUSTERILER.ToList();
             return View(degerler);
         }
 
         [HttpGet]
-        public ActionResult YeniMusteri()
+        public ActionResult YeniMusteri() 
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult YeniMusteri(TBLMUSTERILER p1)
+        public ActionResult YeniMusteri(TBLMUSTERILER p1) //Müşteri ekleme işlemi
         {
             db.TBLMUSTERILER.Add(p1);   
             db.SaveChanges();
             return View();  
+        }
+
+        public ActionResult SIL (int id) //Müşteri silme işlemi
+        {
+            var musterı = db.TBLMUSTERILER.Find(id);
+            db.TBLMUSTERILER.Remove(musterı);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
