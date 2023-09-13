@@ -51,7 +51,7 @@ namespace MvcStok.Controllers
         }
 
 
-        public ActionResult UrunGetir(int id)
+        public ActionResult UrunGetir(int id) //Ürün getirme işlemi
         {
             var urun = db.TBLURUNLER.Find(id);
 
@@ -65,5 +65,20 @@ namespace MvcStok.Controllers
 
             return View("UrunGetir", urun); 
         }
+
+        public ActionResult Guncelle(TBLURUNLER p) //Ürün güncelleme işlemi
+        {
+            var urun = db.TBLURUNLER.Find(p.URUNID);    
+            urun.URUNAD = p.URUNAD;
+            urun.MARKA = p.MARKA;
+            urun.STOK = p.STOK;
+            urun.FIYAT = p.FIYAT;
+            //urun.URUNKATEGORI = p.URUNKATEGORI;
+            var ktgr = db.TBLKATEGORILER.Where(m => m.KATEGORIID == p.TBLKATEGORILER.KATEGORIID).FirstOrDefault();
+            urun.URUNKATEGORI = ktgr.KATEGORIID;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
     }
 }
