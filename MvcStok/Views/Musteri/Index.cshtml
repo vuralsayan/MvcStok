@@ -5,6 +5,15 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
+@using (Html.BeginForm("Index", "Musteri", FormMethod.Get))
+{
+    <p>
+        <b>Aranacak Müşteri Adı:</b>  @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </p>
+
+}
+
 <table class="table table-bordered">
     <tr>
         <th>Müşteri ID</th>
@@ -15,7 +24,6 @@
         <th>Alet</th>
     </tr>
     <tbody>
-        s
         @foreach (var mus in Model)
         {
             <tr>
@@ -24,7 +32,7 @@
                 <td>@mus.MUSTERISOYAD</td>
                 <td><a href="/MUSTERI/SIL/@mus.MUSTERIID" class="btn btn-danger">SİL</a></td>
                 <td><a href="/MUSTERI/MusteriGetir/@mus.MUSTERIID" class="btn btn-success">GÜNCELLE</a></td>
-                <td>@Html.ActionLink("SİL BUTONU", "SIL", new {id=mus.MUSTERIID }, new { @class = "btn btn-warning", onclick = "return confirm('Gerçekten silmek istiyor musunuz?')" })</td>
+                <td>@Html.ActionLink("SİL BUTONU", "SIL", new { id = mus.MUSTERIID }, new { @class = "btn btn-warning", onclick = "return confirm('Gerçekten silmek istiyor musunuz?')" })</td>
             </tr>
         }
 </table>
