@@ -12,8 +12,10 @@
         <th>Müşteri Soyadı</th>
         <th>Sil</th>
         <th>Güncelle</th>
+        <th>Alet</th>
     </tr>
-    <tbody>s
+    <tbody>
+        s
         @foreach (var mus in Model)
         {
             <tr>
@@ -22,6 +24,7 @@
                 <td>@mus.MUSTERISOYAD</td>
                 <td><a href="/MUSTERI/SIL/@mus.MUSTERIID" class="btn btn-danger">SİL</a></td>
                 <td><a href="/MUSTERI/MusteriGetir/@mus.MUSTERIID" class="btn btn-success">GÜNCELLE</a></td>
+                <td>@Html.ActionLink("SİL BUTONU", "SIL", new {id=mus.MUSTERIID }, new { @class = "btn btn-warning", onclick = "return confirm('Gerçekten silmek istiyor musunuz?')" })</td>
             </tr>
         }
 </table>
